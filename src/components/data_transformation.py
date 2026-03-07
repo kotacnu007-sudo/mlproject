@@ -41,14 +41,12 @@ class DataTransformation:
                 ]
             )
 
-            cat_pipeline=Pipeline(
+            cat_pipeline = Pipeline(
                 steps=[
-                    ("imputer",SimpleImputer(strategy="most_frequent")),
-                    ("one_hot_encoder",OneHotEncoder(sparse_output=False)),
-                    ("scaler",StandardScaler(with_mean=False))
+                    ("imputer", SimpleImputer(strategy="most_frequent")),
+                    ("one_hot_encoder", OneHotEncoder(handle_unknown="ignore")),
+                    ("scaler", StandardScaler(with_mean=False))
                 ]
-
-                
             )
             logging.info("Numerical columns :{categorical_columns}")
             logging.info("Categorical columns :{numerical_columns}")
